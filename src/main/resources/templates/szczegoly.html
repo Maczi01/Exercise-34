@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Schronisko Reksio i Klakier</title>
+    <!--TODO Baner z logo i tytułem-->
+
+    <style type="text/css">
+        body {
+            background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGfyBPWvAc1s8SpsdfoLz1t8bTX72sUV39z98ouJ9FyONqv2LNZg");
+            background-size: cover;
+        }
+        h2{
+            margin-left: 475px;
+        }
+        h1{
+            text-align: center;
+        }
+        .forlogo {
+
+            text-align: center;
+        }
+
+        .container {
+            border: 25px blue;
+            width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            word-wrap:break-word;
+            max-width:100%;
+        }
+        .forimg{
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .list {
+            margin-top: 10px;
+            margin-left: 200px;
+        }
+        .biggerfont{
+            font-size: 20px;
+        }
+
+        .header {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            white-space: nowrap;
+            word-wrap:break-word;
+            max-width:100%;
+        }
+        .forcategories{
+            /*float: left;*/
+            list-style-type: none;
+            margin-left: 200px;
+        }
+        .forinline{
+            display: inline;
+            padding-left: 20px;
+        }
+        .forlistone{
+            float: left;
+        }
+        .forlisttwo{
+            float: left;
+            padding-left: 20px;
+        }
+        form{
+            margin: 10px;
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+<!--<div class="container">-->
+<h1 class="title">Schronisko Reksio i Klakier</h1>
+<!--</div>-->
+<div class="forlogo">
+    <img src="https://www.freecopyrightregistration.com/multimedia/products/1890.png" height=80px>
+</div>
+<form action="/">
+    <div  class="col text-center">
+        <button class="btn btn-primary">Wróć do strony głównej</button>
+    </div>
+</form>
+<h2 th:text="${nameAnimal.getName()}"></h2>
+
+
+
+
+<div class="container">
+<!--<div class="list">-->
+<!--<h2 th:text="${nameAnimal.getName()}"></h2>-->
+<div>
+    <p th:text="${nameAnimal.getDescription()}"></p>
+    <a th:href="@{'/edytuj?name='+${nameAnimal.name}}"> edycja zwierzaka</a>
+</div>
+</div>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col" > Kategoria</th>
+            <th scope="col" th:text="${nameAnimal.getCategory()}"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row" >Numer w bazie</th>
+            <td scope="row" th:text="${nameAnimal.getId()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--</div>-->
+<div class="container">
+<img  height="600px" width="600" th:src="${nameAnimal.imgUrl} "/>
+</div>
+
+</body>
+</html>
